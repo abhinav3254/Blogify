@@ -53,8 +53,6 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .csrf().disable()
                 .authorizeRequests()
                 // Define authorization rules for endpoints
-                .antMatchers("/auth/register","/auth/login").permitAll()
-                // Allow unauthenticated access to signup and login
                 .anyRequest()
                 // Require authentication for all other requests
                 .authenticated()
