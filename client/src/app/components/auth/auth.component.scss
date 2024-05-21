@@ -1,0 +1,90 @@
+.AuthContainer {
+    height: 95vh;
+    width: 100vw;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+
+    .AuthPage {
+        width: 25%;
+        border: 1px solid gainsboro;
+    
+        .LoginForm {
+            display: flex;
+            flex-direction: column;
+            padding: 5px 10px;
+        
+            .Invalid {
+                color: red;
+                margin: 5px 0;
+            }
+        
+            .input {
+                margin: 2px 0;
+            }
+        
+        
+            .ForgotPasswordContainer {
+                display: flex;
+                flex-direction: row;
+                justify-content: flex-end;
+                
+                .ForgotPassword {
+                    margin: 5px 0;
+                    padding: 0;
+                    font-size: 12px;
+                }
+            }
+            .btnContainer {
+                display: flex;
+                flex-direction: row;
+                align-items: center;
+                justify-content: center;
+            }
+            
+        }
+
+        .SignupForm {
+            display: flex;
+            flex-direction: column;
+
+            padding: 5px 10px;
+            
+            .input {
+                margin: 5px 0;
+            }
+
+            .card {
+                margin: 5px 0;
+            }
+
+            .flex-space-btw {
+                display: flex;
+                flex-direction: row;
+                justify-content: space-between;
+                margin: 0;
+                align-items: center;
+            }
+
+        }
+        
+        .ChangePageConatiner {
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            justify-content: center;
+            margin: 15px 0;
+        
+            .ChangePage {
+                margin: 0;
+                font-size: 12px;
+
+                span {
+                    color: green;
+                    cursor: pointer;
+                }
+            }
+        }
+    }
+}

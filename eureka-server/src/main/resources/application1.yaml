@@ -1,0 +1,17 @@
+spring:
+  application:
+    name: eureka-server
+  server:
+    port: 8761
+  cloud:
+    gateway:
+      globalcors:
+        cors-configurations:
+          "[/**]":
+            allowedOrigins: "*"
+            allowedMethods:
+              - GET
+              - POST
+              - PUT
+              - DELETE
+              - OPTIONS

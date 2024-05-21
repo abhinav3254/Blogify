@@ -1,0 +1,46 @@
+<div class="AuthContainer">
+    <div class="AuthPage">
+        <form *ngIf="isLoginPage" [formGroup]="loginForm" class="LoginForm" (ngSubmit)="loginSubmit()">
+            <h2>Login To access Blogify</h2>
+            <div class="Invalid"
+                *ngIf="(loginForm.controls.username.dirty|| loginForm.controls.username.touched) && loginForm.controls.username.invalid">
+                username is required*
+            </div>
+            <input class="input" type="text" pInputText placeholder="username" formControlName="username" />
+            <div class="Invalid"
+                *ngIf="(loginForm.controls.password.dirty|| loginForm.controls.password.touched) && loginForm.controls.password.invalid">
+                password is required*
+            </div>
+            <input class="input" type="text" pInputText placeholder="password" formControlName="password" />
+
+            <div class="ForgotPasswordContainer">
+                <p class="ForgotPassword">Forgot Password?</p>
+            </div>
+            <div class="btnContainer">
+                <p-button [disabled]="!loginForm.valid" type="submit" label="Submit" />
+            </div>
+        </form>
+
+        <form *ngIf="!isLoginPage" [formGroup]="signupForm" class="SignupForm">
+            <h2>Join us and start your Journey with Blogify</h2>
+
+            <input class="input" formControlName="name" type="text" pInputText placeholder="name" />
+            <input class="input" formControlName="username" type="text" pInputText placeholder="username" />
+            <input class="input" formControlName="password" type="text" pInputText placeholder="password" />
+            <input class="input" formControlName="mobile" type="text" pInputText placeholder="mobile" />
+            <input class="input" formControlName="email" type="text" pInputText placeholder="email" />
+            <div class="card flex flex-space-btw" [formGroupName]="'gender'">
+                <p-dropdown class="input" formControlName="selectedGender" [options]="genders" optionLabel="name"
+                    placeholder="Select Gender"></p-dropdown>
+                <p-button [disabled]="!signupForm.valid" type="submit" label="Submit" />
+            </div>
+        </form>
+
+        <div class="ChangePageConatiner">
+            <p *ngIf="isLoginPage" class="ChangePage">New to Blogify? <span (click)="isLoginPage=false">Signup</span>
+            </p>
+            <p *ngIf="!isLoginPage" class="ChangePage">Already on Blogify? <span (click)="isLoginPage=true">Login</span>
+            </p>
+        </div>
+    </div>
+</div>
