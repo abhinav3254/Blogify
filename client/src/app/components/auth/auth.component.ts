@@ -4,6 +4,7 @@ import { DropdownChangeEvent } from 'primeng/dropdown';
 import { AuthService } from './auth.service';
 import { HttpErrorResponse } from 'src/app/API-Response-Interface';
 import { MessageService } from 'primeng/api';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-auth',
@@ -12,7 +13,7 @@ import { MessageService } from 'primeng/api';
 })
 export class AuthComponent {
 
-  constructor(private auth: AuthService, private messageService: MessageService) { }
+  constructor(private auth: AuthService, private messageService: MessageService, private router: Router) { }
 
   isLoginPage: boolean = true;
 
@@ -36,11 +37,14 @@ export class AuthComponent {
   });
 
 
+  loginResponse: JwtMessage | undefined;
   loginSubmit() {
     this.auth.login(this.loginForm.value).subscribe(
       (response) => {
-        console.log(response);
+        this.loginResponse = response as JwtMessage;
+        localStorage.setItem('token', this.loginResponse.response);
         this.showSuccess();
+        this.router.navigate(['home']);
       },
       (error: HttpErrorResponse) => {
         console.error("Login failed:", error.status === 404)
@@ -78,4 +82,9 @@ export class AuthComponent {
 
 interface Gender {
   name: string
+}
+
+interface JwtMessage {
+  response: string
+  date: string
 }

@@ -14,8 +14,12 @@ import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
 import { APIInterceptor } from './api.interceptor';
 import { ToastModule } from 'primeng/toast';
 import { MessageService } from 'primeng/api';
+import { AppInitService } from './app-init.service';
 
 
+export function initApp(appInitService: AppInitService) {
+  return () => appInitService.init();
+}
 
 @NgModule({
   declarations: [
