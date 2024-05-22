@@ -1,0 +1,32 @@
+<app-nav></app-nav>
+
+<div class="Write">
+
+    <div class="writeHeader" (click)="goBack()">
+        <div class="BackButton">
+            <img src="../../../assets/back.svg" alt="">
+            <p>Back</p>
+        </div>
+
+        <div class="writeHeaderOptions">
+            <div class="BackButton">
+                <img src="../../../assets/save.svg" alt="">
+                <p>Save For Later</p>
+            </div>
+
+            <div class="BackButton">
+                <img src="../../../assets/schedule.svg" alt="">
+                <p>Schedule Publish</p>
+            </div>
+            <div class="BackButton">
+                <img src="../../../assets/publish.svg" alt="">
+                <p>Publish</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="card">
+        <p-editor [(ngModel)]="text" [style]="{ height: '580px' }" />
+    </div>
+
+</div>

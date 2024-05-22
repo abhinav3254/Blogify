@@ -47,8 +47,6 @@ export class AuthComponent {
         this.router.navigate(['home']);
       },
       (error: HttpErrorResponse) => {
-        console.error("Login failed:", error.status === 404)
-
         if (error.status == 404) {
           this.showUserNotFound();
         } else if (error.status == 400) {
