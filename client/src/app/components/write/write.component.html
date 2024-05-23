@@ -1,6 +1,6 @@
 <app-nav></app-nav>
 
-<div class="Write">
+<div class="Write" [formGroup]="writeForm">
 
     <div class="writeHeader">
         <div class="BackButton" (click)="goBack()">
@@ -26,7 +26,7 @@
     </div>
 
     <div class="card">
-        <p-editor [(ngModel)]="text" [style]="{ height: '580px' }" />
+        <p-editor formControlName="text" [style]="{ height: '580px' }"></p-editor>
     </div>
 
     <p-dialog header="Publish" [modal]="true" [(visible)]="showPublishDialog" [style]="{ width: '50rem' }"
@@ -37,18 +37,20 @@
                 <input id="file-upload" accept="image/*" type="file" (change)="onBasicUploadAuto($event)">
             </div>
             <div class="details">
-                <input [(ngModel)]="blogTitle" class="input" type="text" pInputText placeholder="Title" />
+                <input formControlName="blogTitle" class="input" type="text" pInputText placeholder="Title" />
             </div>
             <div class="tags">
-                <label for=".input">Use comma to seperate</label>
-                <p-chips [(ngModel)]="tags" [max]="maxTags" class="input" separator="," placeholder="Max 5 Allowed" />
+                <label for=".input">Use comma to separate</label>
+                <p-chips formControlName="tags" [max]="5" class="input" separator=","
+                    placeholder="Max 5 Allowed"></p-chips>
             </div>
             <div class="checkBox">
-                <p-inputSwitch [(ngModel)]="allowComments" />
+                <p-inputSwitch formControlName="allowComments"></p-inputSwitch>
                 <p>Allow comments</p>
             </div>
             <div class="btn">
-                <p-button (onClick)="submitForm()" label="Publish" icon="pi pi-check" />
+                <p-button [disabled]="!writeForm.valid" (click)="submitForm()" label="Publish"
+                    icon="pi pi-check"></p-button>
             </div>
         </div>
     </p-dialog>

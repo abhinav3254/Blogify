@@ -1,0 +1,35 @@
+<div class="BlogContainer">
+    <div class="ImageConatiner">
+        <img [src]="blog?.img" alt="">
+    </div>
+    <div class="Others">
+        <div class="UserDetails">
+            <img src="https://media.dev.to/cdn-cgi/image/width=90,height=90,fit=cover,gravity=auto,format=auto/https%3A%2F%2Fdev-to-uploads.s3.amazonaws.com%2Fuploads%2Fuser%2Fprofile_image%2F1119725%2Ff4906d35-2ed1-4299-bc5e-def9291b8b62.jpeg"
+                alt="">
+            <div class="User">
+                <p class="UserName">Timothy Olanrewaju</p>
+                <p>May 21 (2 days ago)</p>
+            </div>
+        </div>
+        <div class="FooterSection">
+            <div class="Title">
+                <p>{{blog?.blogTitle}}</p>
+            </div>
+            <ul class="TagsConatiner">
+                <li class="tags" *ngFor="let tag of blog?.tags">#{{tag}}</li>
+            </ul>
+            <div class="Footer">
+                <div class="Reactions">
+                    <p>10 Reactions</p>
+                    <p>8 Comments</p>
+                </div>
+                <div class="Details">
+                    <p>3 min read</p>
+                    <p>
+                        <i class="pi pi-bookmark" style="color: slateblue"></i>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

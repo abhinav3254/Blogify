@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+import Blogs from '../../../assets/blogs.json'
+import { Blog } from 'src/app/interfaces/BlogInterface';
 
 @Component({
   selector: 'app-home',
@@ -6,5 +8,7 @@ import { Component } from '@angular/core';
   styleUrls: ['./home.component.scss']
 })
 export class HomeComponent {
+
+  blogs: Blog[] = Blogs;
 
 }

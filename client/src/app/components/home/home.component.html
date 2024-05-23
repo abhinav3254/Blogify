@@ -1,1 +1,6 @@
 <app-nav></app-nav>
+<div class="home">
+    <ng-container *ngFor="let blog of blogs">
+        <app-single-blog [blog]="blog"></app-single-blog>
+    </ng-container>
+</div>

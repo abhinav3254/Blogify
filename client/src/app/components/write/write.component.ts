@@ -1,57 +1,60 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
-import { Location } from '@angular/common'
+import { Location } from '@angular/common';
 import { MessageService } from 'primeng/api';
-
-interface UploadEvent {
-  originalEvent: Event;
-  files: File[];
-}
 
 @Component({
   selector: 'app-write',
   templateUrl: './write.component.html',
   styleUrls: ['./write.component.scss']
 })
-export class WriteComponent {
+export class WriteComponent implements OnInit {
 
-  constructor(private router: Router, private location: Location, private messageService: MessageService) { }
-
-  text: string | undefined;
-  showPublishDialog = true;
+  writeForm: FormGroup;
   uploadImage: string | undefined;
-  maxTags: number = 5;
-  allowComments: boolean = true;
-  tags: any;
-  blogTitle: string = '';
+  showPublishDialog = false;
+
+  constructor(
+    private fb: FormBuilder,
+    private router: Router,
+    private location: Location,
+    private messageService: MessageService
+  ) {
+    this.writeForm = this.fb.group({
+      text: ['', Validators.required],
+      blogTitle: ['', Validators.required],
+      tags: [[]],
+      allowComments: [true]
+    });
+  }
+
+  ngOnInit() { }
 
   goBack() {
-    // go back to route from where I came doesn't matter i.e. is home or profile
     this.location.back();
   }
 
   onBasicUploadAuto(event: any) {
     const input = event.target as HTMLInputElement;
-    console.log(input);
-
     if (input.files && input.files.length > 0) {
       const file = input.files[0];
       this.uploadImage = URL.createObjectURL(file);
-      // console.log(file);
     }
   }
 
   submitForm() {
-    const blogPost = {
-      text: this.text,
-      image: this.uploadImage,
-      tags: this.tags,
-      title: this.blogTitle,
-      allowComments: this.allowComments
-    };
+    if (this.writeForm.valid) {
+      const formData = {
+        ...this.writeForm.value,
+        uploadImage: this.uploadImage
+      };
 
-    console.log('Blog Post Data:', blogPost);
-    this.messageService.add({ severity: 'success', summary: 'Form Submitted', detail: 'Your blog post has been submitted successfully.' });
+      console.log('Form Data:', formData);
+      this.messageService.add({ severity: 'success', summary: 'Success', detail: 'Blog published successfully!' });
+
+    } else {
+      this.messageService.add({ severity: 'error', summary: 'Error', detail: 'Please fill out the form correctly.' });
+    }
   }
-
 }

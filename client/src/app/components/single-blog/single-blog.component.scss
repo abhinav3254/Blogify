@@ -1,0 +1,107 @@
+.BlogContainer {
+    height: 500px;
+    width: 800px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    border: 1px solid gainsboro;
+    margin: 10px auto;
+
+    .ImageConatiner {
+        height: 50%;
+
+        img {
+            height: 100%;
+            width: 100%;
+            object-fit: cover;
+        }
+    }
+
+    .Others {
+        padding: 5px 10px;
+
+        .UserDetails {
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            justify-content: flex-start;
+            margin: 10px 0;
+
+            img {
+                width: 30px;
+                height: 30px;
+                object-fit: cover;
+                border-radius: 100%;
+            }
+
+            .User {
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                margin-left: 5px;
+
+                p {
+                    margin: 0;
+                    padding: 0;
+                    font-size: 12px;
+                }
+
+                .UserName {
+                    font-size: 14px;
+                    font-weight: 500;
+                }
+            }
+        }
+
+        .FooterSection {
+            padding: 0 20px;
+            margin: 0;
+
+            .Title {
+                font-size: 30px;
+                font-weight: 600;
+                margin: 0;
+                padding: 0;
+
+                p {
+                    margin: 5px 0;
+                }
+            }
+
+            .TagsConatiner {
+                display: flex;
+                flex-direction: row;
+                list-style: none;
+                justify-content: flex-start;
+                align-items: center;
+
+                li {
+                    border: 1px solid green;
+                    padding: 2px 4px;
+                    margin: 2px;
+                }
+            }
+
+            .Footer {
+                display: flex;
+                flex-direction: row;
+                justify-content: space-between;
+                align-items: center;
+
+                div {
+                    display: flex;
+                    align-items: center;
+
+                    p {
+                        font-size: 14px;
+                        margin: 5px;
+                    }
+                }
+            }
+        }
+    }
+
+    &:hover {
+        cursor: pointer;
+    }
+}

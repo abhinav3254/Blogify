@@ -22,6 +22,7 @@ import { DialogModule } from 'primeng/dialog';
 import { FileUploadModule } from 'primeng/fileupload';
 import { ChipsModule } from 'primeng/chips';
 import { InputSwitchModule } from 'primeng/inputswitch';
+import { SingleBlogComponent } from './components/single-blog/single-blog.component';
 
 export function initApp(appInitService: AppInitService) {
   return () => appInitService.init();
@@ -33,7 +34,8 @@ export function initApp(appInitService: AppInitService) {
     AuthComponent,
     HomeComponent,
     NavComponent,
-    WriteComponent
+    WriteComponent,
+    SingleBlogComponent
   ],
   imports: [
     BrowserModule,
