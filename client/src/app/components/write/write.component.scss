@@ -50,3 +50,50 @@
         margin: 10px;
     }
 }
+
+.uploadedImage {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-around;
+    img {
+        height: 50%;
+        width: 200px;
+    }
+}
+
+.details {
+    margin: 20px 5px 10px 5px;
+
+    .input {
+        width: 100%;
+    }
+}
+
+.tags {
+    display: flex;
+    flex-direction: column;
+    margin: 0 5px;
+
+
+    label {
+        margin: 10px 0;
+        font-size: 12px;
+    }
+}
+
+.checkBox {
+    margin: 10px 5px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-start;
+
+    p {
+        margin-left: 10px;
+    }
+}
+
+.btn {
+    margin: 10px 0;
+}

@@ -18,7 +18,10 @@ import { AppInitService } from './app-init.service';
 import { NavComponent } from './components/nav/nav.component';
 import { WriteComponent } from './components/write/write.component';
 import { EditorModule } from 'primeng/editor';
-
+import { DialogModule } from 'primeng/dialog';
+import { FileUploadModule } from 'primeng/fileupload';
+import { ChipsModule } from 'primeng/chips';
+import { InputSwitchModule } from 'primeng/inputswitch';
 
 export function initApp(appInitService: AppInitService) {
   return () => appInitService.init();
@@ -43,7 +46,11 @@ export function initApp(appInitService: AppInitService) {
     BrowserAnimationsModule,
     HttpClientModule,
     ToastModule,
-    EditorModule
+    EditorModule,
+    DialogModule,
+    FileUploadModule,
+    ChipsModule,
+    InputSwitchModule
   ],
   providers: [{
     provide: HTTP_INTERCEPTORS,

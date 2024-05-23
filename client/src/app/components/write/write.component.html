@@ -2,8 +2,8 @@
 
 <div class="Write">
 
-    <div class="writeHeader" (click)="goBack()">
-        <div class="BackButton">
+    <div class="writeHeader">
+        <div class="BackButton" (click)="goBack()">
             <img src="../../../assets/back.svg" alt="">
             <p>Back</p>
         </div>
@@ -18,7 +18,7 @@
                 <img src="../../../assets/schedule.svg" alt="">
                 <p>Schedule Publish</p>
             </div>
-            <div class="BackButton">
+            <div class="BackButton" (click)="showPublishDialog=true">
                 <img src="../../../assets/publish.svg" alt="">
                 <p>Publish</p>
             </div>
@@ -28,5 +28,29 @@
     <div class="card">
         <p-editor [(ngModel)]="text" [style]="{ height: '580px' }" />
     </div>
+
+    <p-dialog header="Publish" [modal]="true" [(visible)]="showPublishDialog" [style]="{ width: '50rem' }"
+        [breakpoints]="{ '1199px': '75vw', '575px': '90vw' }">
+        <div>
+            <div class="uploadedImage">
+                <img *ngIf="uploadImage" [src]="uploadImage" alt="">
+                <input id="file-upload" accept="image/*" type="file" (change)="onBasicUploadAuto($event)">
+            </div>
+            <div class="details">
+                <input [(ngModel)]="blogTitle" class="input" type="text" pInputText placeholder="Title" />
+            </div>
+            <div class="tags">
+                <label for=".input">Use comma to seperate</label>
+                <p-chips [(ngModel)]="tags" [max]="maxTags" class="input" separator="," placeholder="Max 5 Allowed" />
+            </div>
+            <div class="checkBox">
+                <p-inputSwitch [(ngModel)]="allowComments" />
+                <p>Allow comments</p>
+            </div>
+            <div class="btn">
+                <p-button (onClick)="submitForm()" label="Publish" icon="pi pi-check" />
+            </div>
+        </div>
+    </p-dialog>
 
 </div>
