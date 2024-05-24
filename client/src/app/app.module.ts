@@ -23,6 +23,8 @@ import { FileUploadModule } from 'primeng/fileupload';
 import { ChipsModule } from 'primeng/chips';
 import { InputSwitchModule } from 'primeng/inputswitch';
 import { SingleBlogComponent } from './components/single-blog/single-blog.component';
+import { TableModule } from 'primeng/table';
+
 
 export function initApp(appInitService: AppInitService) {
   return () => appInitService.init();
@@ -35,7 +37,7 @@ export function initApp(appInitService: AppInitService) {
     HomeComponent,
     NavComponent,
     WriteComponent,
-    SingleBlogComponent
+    SingleBlogComponent,
   ],
   imports: [
     BrowserModule,
@@ -52,7 +54,8 @@ export function initApp(appInitService: AppInitService) {
     DialogModule,
     FileUploadModule,
     ChipsModule,
-    InputSwitchModule
+    InputSwitchModule,
+    TableModule
   ],
   providers: [{
     provide: HTTP_INTERCEPTORS,
