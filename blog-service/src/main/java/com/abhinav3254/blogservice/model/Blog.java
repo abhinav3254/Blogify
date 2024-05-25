@@ -16,6 +16,7 @@ public class Blog {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
+    @Column(length = 2000)
     private String blog;
 
     @ManyToOne
@@ -23,14 +24,15 @@ public class Blog {
 
     private Integer readTime;
 
+    @ElementCollection
     private List<String> tags;
 
     private boolean allowComments;
 
-    @OneToMany
+    @OneToMany(cascade = CascadeType.ALL, orphanRemoval = true)
     private List<Comments> comments;
 
-    @OneToMany
+    @OneToMany(cascade = CascadeType.ALL,orphanRemoval = true)
     private List<Likes> likes;
 
     private byte[] coverImage;

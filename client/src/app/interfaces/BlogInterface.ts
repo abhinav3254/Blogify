@@ -3,5 +3,5 @@ export interface Blog {
     blogTitle: string
     tags: string[]
     allowComments: boolean
-    img: string
+    coverImage: File
 }

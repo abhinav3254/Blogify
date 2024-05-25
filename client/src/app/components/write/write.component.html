@@ -26,18 +26,19 @@
     </div>
 
     <div class="card">
-        <p-editor formControlName="text" [style]="{ height: '580px' }"></p-editor>
+        <p-editor formControlName="blog" [style]="{ height: '580px' }"></p-editor>
     </div>
 
     <p-dialog header="Publish" [modal]="true" [(visible)]="showPublishDialog" [style]="{ width: '50rem' }"
         [breakpoints]="{ '1199px': '75vw', '575px': '90vw' }">
         <div>
             <div class="uploadedImage">
-                <img *ngIf="uploadImage" [src]="uploadImage" alt="">
-                <input id="file-upload" accept="image/*" type="file" (change)="onBasicUploadAuto($event)">
+                <img *ngIf="uploadImage" [src]="uploadImageUrl" alt="">
+                <input formControlName="coverImage" id="file-upload" accept="image/*" type="file"
+                    (change)="onBasicUploadAuto($event)">
             </div>
             <div class="details">
-                <input formControlName="blogTitle" class="input" type="text" pInputText placeholder="Title" />
+                <input formControlName="title" class="input" type="text" pInputText placeholder="Title" />
             </div>
             <div class="tags">
                 <label for=".input">Use comma to separate</label>
