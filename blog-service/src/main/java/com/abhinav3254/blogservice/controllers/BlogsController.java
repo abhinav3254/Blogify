@@ -26,4 +26,9 @@ public class BlogsController {
         return ResponseEntity.ok(blogService.getAllBlogs());
     }
 
+    @DeleteMapping("/delete/all")
+    public ResponseEntity<?> deleteAll() {
+        return ResponseEntity.ok(blogService.deleteAll());
+    }
+
 }
