@@ -1,5 +1,5 @@
 import { Component, Input } from '@angular/core';
-import { Blog } from 'src/app/interfaces/BlogInterface';
+import { Blogs } from 'src/app/interfaces/GetBlog';
 
 @Component({
   selector: 'app-single-blog',
@@ -8,6 +8,9 @@ import { Blog } from 'src/app/interfaces/BlogInterface';
 })
 export class SingleBlogComponent {
 
-  @Input() blog: Blog | undefined;
+  @Input() blog: Blogs | undefined;
 
+  renderBase64Image(url: string): string {
+    return "data:image/png;base64, " + url;
+  }
 }

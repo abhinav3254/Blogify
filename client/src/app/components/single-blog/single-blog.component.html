@@ -1,30 +1,29 @@
-<div class="BlogContainer">
+<div class="BlogContainer" *ngIf="blog">
     <div class="ImageConatiner">
-        <img [src]="blog?.coverImage" alt="">
+        <img src={{renderBase64Image(blog.coverImage)}} alt="">
     </div>
     <div class="Others">
         <div class="UserDetails">
-            <img src="https://media.dev.to/cdn-cgi/image/width=90,height=90,fit=cover,gravity=auto,format=auto/https%3A%2F%2Fdev-to-uploads.s3.amazonaws.com%2Fuploads%2Fuser%2Fprofile_image%2F1119725%2Ff4906d35-2ed1-4299-bc5e-def9291b8b62.jpeg"
-                alt="">
+            <img src={{renderBase64Image(blog.user.profilePic)}} alt="">
             <div class="User">
-                <p class="UserName">Timothy Olanrewaju</p>
-                <p>May 21 (2 days ago)</p>
+                <p class="UserName">{{blog.user.username}}</p>
+                <p>{{blog.postedDate | date }}</p>
             </div>
         </div>
         <div class="FooterSection">
             <div class="Title">
-                <p>{{blog?.blogTitle}}</p>
+                <p>{{blog.title}}</p>
             </div>
             <ul class="TagsConatiner">
                 <li class="tags" *ngFor="let tag of blog?.tags">#{{tag}}</li>
             </ul>
             <div class="Footer">
                 <div class="Reactions">
-                    <p>10 Reactions</p>
-                    <p>8 Comments</p>
+                    <p>{{blog.likes}} Reactions</p>
+                    <p>{{blog.comments.length}} Comments</p>
                 </div>
                 <div class="Details">
-                    <p>3 min read</p>
+                    <p>{{blog.readTime}} min read</p>
                     <p>
                         <i class="pi pi-bookmark" style="color: slateblue"></i>
                     </p>

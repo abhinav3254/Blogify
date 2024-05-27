@@ -38,7 +38,7 @@ public class BlogServiceImpl implements BlogService {
         blog.setBlog(blogDTO.getBlog());
         blog.setTitle(blogDTO.getTitle());
         blog.setTags(blogDTO.getTags());
-        int readTime = blogDTO.getBlog().length()/200;
+        int readTime = blogDTO.getBlog().length()/1000;
         if (readTime == 0) readTime = 1;
         blog.setReadTime(readTime);
         try {
@@ -66,6 +66,7 @@ public class BlogServiceImpl implements BlogService {
             g.setCoverImage(encodeImage(blog.getCoverImage()));
             g.setPostedDate(blog.getCreateDate());
             g.setReadTime(blog.getReadTime());
+            g.setTags(blog.getTags());
 
             User user = blog.getUser();
 
@@ -78,6 +79,7 @@ public class BlogServiceImpl implements BlogService {
             List<CommentDTO> commentDTOS = new ArrayList<>();
             for(Comments comments:blog.getComments()) {
                 CommentDTO commentDTO = new CommentDTO();
+                commentDTO.setId(comments.getId());
                 commentDTO.setComment(comments.getComment());
                 commentDTO.setUsername(comments.getUser().getUsername());
                 commentDTO.setLike(comments.getLikes());

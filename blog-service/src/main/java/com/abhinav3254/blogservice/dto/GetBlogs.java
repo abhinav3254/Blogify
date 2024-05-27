@@ -1,6 +1,7 @@
 package com.abhinav3254.blogservice.dto;
 
 
+import com.fasterxml.jackson.annotation.JsonRawValue;
 import lombok.Data;
 import org.springframework.web.multipart.MultipartFile;
 
@@ -11,6 +12,7 @@ import java.util.List;
 public class GetBlogs {
     private Long id;
     private String title;
+
     private String content;
     private String coverImage;
     private Date postedDate;
@@ -20,5 +22,6 @@ public class GetBlogs {
 
     private UserDTO user;
     private List<CommentDTO> comments;
+    private List<String> tags;
 
 }

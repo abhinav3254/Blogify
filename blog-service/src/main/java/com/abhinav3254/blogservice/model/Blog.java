@@ -1,6 +1,7 @@
 package com.abhinav3254.blogservice.model;
 
 
+import com.fasterxml.jackson.annotation.JsonRawValue;
 import lombok.Data;
 
 import javax.persistence.*;
@@ -18,7 +19,7 @@ public class Blog {
 
     private String title;
 
-    @Column(length = 2000)
+    @Column(columnDefinition = "TEXT")
     private String blog;
 
     @ManyToOne
